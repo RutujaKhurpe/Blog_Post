@@ -1,0 +1,77 @@
+/* General styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+    font-family: Arial, sans-serif;
+}
+
+.outer-container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+    margin-top: 50px;
+}
+
+h4 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.inputs {
+    margin-bottom: 20px;
+}
+
+.custom-input,
+.custom-textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    margin-bottom: 10px;
+    transition: border-color 0.3s ease;
+}
+
+.custom-input:focus,
+.custom-textarea:focus {
+    border-color: #0074D9;
+    outline: none;
+}
+
+.custom-input::placeholder,
+.custom-textarea::placeholder {
+    color: #aaa;
+}
+
+/* Style the file input */
+.custom-input[type="file"] {
+    padding: 0;
+    height: auto;
+}
+
+/* Style the submit button (you can add this in your HTML) */
+.submit-button {
+    background-color: #ff5722;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    margin-left: 35%;
+}
+
+.submit-button:hover {
+    background-color: #0056b3;
+}

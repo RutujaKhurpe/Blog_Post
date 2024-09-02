@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <link rel="stylesheet" href="profile.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+        .container, #profile-container, #blogs-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .blog-item {
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        .submit-btn {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0,0,0);
+            background-color: rgba(0,0,0,0.4);
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+        }
+        .close-btn {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .close-btn:hover,
+        .close-btn:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <button class="logout" id="logoutButton">log out</button>
+        <h1 id="welcome-message">Welcome to your profile, <span id="user-name"></span></h1>
+        <div id="blogs-container">
+            <h2>Your Blogs</h2>
+            <button class="add-blog-btn">Add Blog</button>
+            <div id="blog-list">
+                <img src="" alt =" ">
+
+                <!--images , blogs content are displayed here-->
+            </div>
+        </div>
+    </div>
+
+    <div id="blogModal" class="modal" >
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Add New Blog</h2>
+            <form id="addBlogForm" action="/addblog" method="POST" enctype="multipart/form-data">
+                <label for="title">Title:</label>
+                <input type="text" id="title" name="title" required><br/>
+
+                <label for="category">Category:</label>
+                <input type="text" id="category" name="category" required><br/>
+
+                <label for="image">Image URL:</label>
+                <input type="file" class="custom-input" name ="image" accept="image/*"><br/>
+
+                <label for="bio">Bio:</label>
+                <textarea id="bio" name="bio" rows="4" required></textarea><br/>
+
+                <button type="submit" class="submit-btn">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="editModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Edit Blog</h2>
+            <form id="editBlogForm" enctype="multipart/form-data">
+                <label for="title">Title:</label>
+                <input type="text" id="title" name="title" required>
+
+                <label for="category">Category:</label>
+                <input type="text" id="category" name="category" required>
+
+                <label for="bio">Bio:</label>
+                <textarea id="bio" name="bio" required></textarea>
+
+                <label for="image">Image URL:</label>
+                <input type="file" name="image" id="editImage">
+                <button type="submit">Update Blog</button>
+            </form>
+        </div>
+    </div>
+    
+
+    <script src="profile.js"></script>
+</body>
+</html>

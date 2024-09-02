@@ -1,0 +1,133 @@
+/* General Styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+    font-family: Arial, sans-serif;
+}
+
+/* Outer container taking full height */
+.outer-container {
+    position: relative;
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* SignIn Button at the top right */
+.signin-button {
+    position: absolute;
+    top: 20px;
+    right: 40px;
+    background-color: #ff5722;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.signin-button:hover {
+    background-color: #0056b3;
+}
+
+/* Center the outer_div */
+.outer_div {
+    background-color: white;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    text-align: center; 
+    width: 90%;
+    max-width: 600px;
+    top:30px
+}
+
+/* Bold heading */
+.outer_div h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* Style the paragraph */
+.outer_div p {
+    font-size: 1.1rem;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+/* Style the button */
+.outer_div button {
+    background-color: #ff5722;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.outer_div button:hover {
+    background-color: #0056b3;
+}
+
+.blogs-container{
+    margin-top: 0;
+}
+
+
+.blog-item {
+    background-color: white;
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width:  400px;
+}
+
+.blog-item img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 15px;
+}
+
+.blog-item h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.blog-item p {
+    margin-bottom: 10px;
+}
+
+.blog-item .category {
+    font-weight: bold;
+    color: #555;
+}
+
+#blog-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    
+}
+
+@media (max-width: 768px) {
+    #blog-list {
+        flex-direction: column;
+        align-items: center;
+    }
+}
