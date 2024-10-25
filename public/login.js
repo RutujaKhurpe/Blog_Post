@@ -25,6 +25,7 @@ document.addEventListener('DOMContentLoaded', function () {
             console.log(data);
 
             if (response.ok) {
+                alert("login successful,wait for the page to direct")
                 // Store the user's name in localStorage
                 localStorage.setItem('userId', data.userId);
                 console.log(data.userId)
@@ -33,7 +34,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 localStorage.setItem('authToken', data.token);
 
                 // Redirect to the profile page
-                window.location.href = 'http://127.0.0.1:5500/UserProfile.html';
+                setTimeout(()=>{
+                window.location.href = 'http://127.0.0.1:5500/public/UserProfile.html';},2000)
             } else {
                 alert(data.message || 'Login failed. Please check your credentials.');
             }

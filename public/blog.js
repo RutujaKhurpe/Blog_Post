@@ -34,9 +34,11 @@ function displayUserBlogs(blogs) {
         const blogElement = document.createElement('div');
         blogElement.className = 'blog-item';
         blogElement.innerHTML = `
-            <h2>${blog.title}</h2>
+            <h2><i>${blog.title}</i></h2>
+            <h3> Category : ${blog.category}</h3>
             <img src="/backend/${blog.image}" alt="${blog.title}" style="max-width: 100%;">
             <p>${blog.bio}</p>
+            <h5>By: ${blog.author.name}</h5>
         `;
         blogListContainer.appendChild(blogElement);
     })

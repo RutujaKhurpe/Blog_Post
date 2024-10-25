@@ -50,6 +50,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 blogElement.className = 'blog-item';
                 blogElement.innerHTML = `
                 <h2>${blog.title}</h2>
+                <h4> Category : ${blog.category}</h4>
                 <img src="/backend/${blog.image}" alt="${blog.title}" style="max-width: 100%;">
                 <p>${blog.bio}</p>
                 <div>
@@ -76,22 +77,15 @@ document.addEventListener("DOMContentLoaded", function () {
         function showModal() {
             document.getElementById('blogModal').style.display = 'block';
         }
-        //code to close function
         // Close modal function
         function closeModal() {
             document.getElementById('blogModal').style.display = 'none';
             document.querySelector('#addBlogForm').reset();
             document.querySelector('#addBlogForm').removeAttribute('data-blog-id');
         }
-        //if clicked outside, then close the modal
-        window.addEventListener('click', (event) => {
-            const modal = document.getElementById('blogModal');
-            if (event.target == modal) {
-                closeModal();
-            }
-        });
         // Event listener for "Add Blog" button
         document.querySelector('.add-blog-btn').addEventListener('click', showModal);
+
 
         // Handle form submission for adding blogs
         document.querySelector("#addBlogForm").addEventListener("submit", async function (e) {
@@ -100,7 +94,6 @@ document.addEventListener("DOMContentLoaded", function () {
             const formData = new FormData(this);
             const userId = localStorage.getItem("userId");
             const token = localStorage.getItem("authToken")
-            console.log("token line 100", token)
 
 
             try {
@@ -131,6 +124,8 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
 
+        
+
         function showEditModal(blogId, title, category, bio) {
             const editModal = document.getElementById('editModal');
             const editBlogForm = document.getElementById('editBlogForm');
@@ -147,7 +142,7 @@ document.addEventListener("DOMContentLoaded", function () {
             editModal.style.display = 'block';
         }
 
-        // Event listener for closing the modal
+        // Event listener for closing the modal for edit
         document.querySelector('.close').addEventListener('click', closeModal);
 
         // Close modal when clicking outside of it
@@ -193,21 +188,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 // Close the modal and refresh the blog list
                 closeModal();
                 fetchUserBlogs();
-
-                //     if (!response.ok) {
-                //         throw new Error('Failed to update blog');
-                //     }
-                //     return response.json();
-                // })
-                // .then(data => {
-                //     if (data.success) {
-                //         alert('Blog updated successfully!');
-                //         closeModal();
-                //         fetchUserBlogs(); // Refresh the blog list
-                //     } else {
-                //         alert('Error updating blog: ' + data.message);
-                //     }
-                // })
             } catch (error) {
                 console.error('Error updating blog:', error);
                 alert('Error updating blog: ' + error.message);
@@ -247,7 +227,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         function logoutUser() {
             localStorage.removeItem('authToken');
-            window.location.href = '/login.html'; // Redirect to login page
+            window.location.href = 'http://127.0.0.1:5500/public/login.html'; // Redirect to login page
         }
 
         document.querySelector('#logoutButton').addEventListener('click', logoutUser);
